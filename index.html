@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-
+scale=1.0"
+    />
+    <title>MCQ Mock Test</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>MCQ Mock Test</h1>
+      <form
+        id="quizForm"
+        action="results.html"
+        method="get"
+        onsubmit="return handleSubmit()"
+      >
+        <div class="question">
+          <p>1. What is the capital of France?</p>
+          <label><input type="radio" name="q1" value="a" /> London</label><br />
+          <label><input type="radio" name="q1" value="b" /> Berlin</label><br />
+          <label><input type="radio" name="q1" value="c" /> Paris</label><br />
+          <label><input type="radio" name="q1" value="d" /> Madrid</label><br />
+        </div>
+        <div class="question">
+          <p>2. Which planet is known as the Red Planet?</p>
+          <label><input type="radio" name="q2" value="a" /> Earth</label><br />
+          <label><input type="radio" name="q2" value="b" /> Mars</label><br />
+          <label><input type="radio" name="q2" value="c" /> Jupiter</label
+          ><br />
+          <label><input type="radio" name="q2" value="d" /> Venus</label><br />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+

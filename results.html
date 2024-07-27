@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-
+scale=1.0"
+    />
+    <title>Quiz Results</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Quiz Results</h1>
+      <div id="results"></div>
+      <p id="score"></p>
+      <button id="retakeButton">Retake Exam</button>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+      const resultData =
+      JSON.parse(localStorage.getItem('resultData'));
+      const questions = {
+      q1: 'What is the capital of France?',
+      q2: 'Which planet is known as the Red Planet?'
+      };
+      const answersText = {
+      q1: {
+      a: 'London',
+      b: 'Berlin',
+      c: 'Paris',
+      d: 'Madrid'
+      },
+      q2: {
+      a: 'Earth',
+      b: 'Mars',
+      c: 'Jupiter',
+      d: 'Venus'
+      }
+
+      };
+      const resultsContainer = document.getElementById('results');
+      const scoreElement = document.getElementById('score');
+      const retakeButton =
+      document.getElementById('retakeButton');
+      let score = 0;
+      resultData.forEach(result => {
+      const userAnswerCorrect = result.userAnswer ===
+      result.correctAnswer;
+      if (!userAnswerCorrect) {
+      const questionElement = document.createElement('div');
+      questionElement.innerHTML = `
+      <p class="incorrect">
+      Question: ${questions[result.question]} <br>
+      Your Answer: ${answersText[result.question]
+      [result.userAnswer]} <br>
+      Correct Answer: ${answersText[result.question]
+      [result.correctAnswer]}
+      </p>
+      `;
+      resultsContainer.appendChild(questionElement);
+      } else {
+      score++;
+      }
+      });
+      scoreElement.textContent = `Your score: ${score} /
+      ${resultData.length}`;
+      retakeButton.addEventListener('click', () => {
+      window.location.href = 'index.html'; // assuming your quiz
+      index.html
+      });
+      });
+    </script>
+  </body>
+</html>
+
