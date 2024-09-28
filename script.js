@@ -1,15 +1,13 @@
-const answers = {
-  q1: "c",
-  q2: "b",
-};
-function handleSubmit() {
-  const form = document.getElementById("quizForm");
-  const formData = new FormData(form);
-  let resultData = [];
-  for (const [question, answer] of Object.entries(answers)) {
-    const userAnswer = formData.get(question);
-    resultData.push({ question, userAnswer, correctAnswer: answer });
+// Toggle the navigation bar open and close
+const menuToggle = document.getElementById('menu-toggle');
+const navContainer = document.getElementById('nav-container');
+
+menuToggle.addEventListener('click', () => {
+  if (navContainer.classList.contains('nav-open')) {
+    navContainer.classList.remove('nav-open');
+    navContainer.classList.add('nav-closed');
+  } else {
+    navContainer.classList.remove('nav-closed');
+    navContainer.classList.add('nav-open');
   }
-  localStorage.setItem("resultData", JSON.stringify(resultData));
-  return true; // Allow form submission
-}
+});
